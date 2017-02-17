@@ -16,6 +16,13 @@ public class 2dArray {
         }
         scan.close();
         
+        findMax(findSums(arr));
+       
+        
+    }
+        
+    
+    public static int[] findSums(int[][] arr){
         int count=0; 
         int sums[] = new int[16];
         for(int i=0; i<4; i++){   
@@ -30,7 +37,10 @@ public class 2dArray {
             
             }
         }
-        
+        return sums;
+    }
+    
+    public static void findMax(int[] sums){   
         int high=sums[0];
         for(int i=1; i< sums.length; i++){     
             if(sums[i] > high){
