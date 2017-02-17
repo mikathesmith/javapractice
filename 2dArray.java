@@ -1,3 +1,8 @@
+//Compares sums found when adding together numbers in an hourglass shape to find the maximum
+//sum in a 6 x 6 2D Array
+
+//Learned: j=column, i=row
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
