@@ -31,9 +31,8 @@ public class 2dArray {
             }
         }
         
-        
-        int high=0;
-        for(int i=0; i< sums.length; i++){     
+        int high=sums[0];
+        for(int i=1; i< sums.length; i++){     
             if(sums[i] > high){
                 high = sums[i];
             }  
