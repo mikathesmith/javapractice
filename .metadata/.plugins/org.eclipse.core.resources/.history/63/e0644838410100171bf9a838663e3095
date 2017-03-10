@@ -1,0 +1,49 @@
+import java.util.*;
+
+
+public InsertNth1{
+	
+	public Node InsertNth1(Node head, int data, int position) {
+
+ 
+    //Initialise new node with input data and next value as null
+    Node n = new Node(), prev = new Node(), curr = new Node();
+    n.data = data;
+    n.next = null;
+    
+    //If empty list, position regardless
+    if(head==null){
+        head.data = data;
+        head.next=null;
+        return head;
+    }
+    
+    //If position is 0, insert new node at head of list. next to n is head. 
+    if(position == 0){
+        n.next = head;
+        return n; 
+    }
+    
+    //Initilaise previous as null and current as head. 
+    prev= null;
+    curr= head; 
+    
+    ///Iterate through list to find the position we are inserting. 
+    for(int i= 0; i< position && curr !=null; i++ ){
+        prev = curr; //keep track of previous 
+        curr= curr.next; 
+    }
+    n.next = prev.next; //next to n is value of current
+    prev.next = n;  //current is n 
+  
+    return head; 
+
+	}
+	
+	public static void main(String[]args){
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			InsertNth1(sc.nextInt(), sc.nextInt());
+		}
+	}
+}

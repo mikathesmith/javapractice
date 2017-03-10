@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class StackQueries{
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        
+        Stack<Integer> s = new Stack<Integer>();
+        
+        
+        for(int i=0; i< num; i++){
+            int query = sc.nextInt();
+            if(query == 1){ //push element 
+                s.push(sc.nextInt());
+               // System.out.println(s.toString());
+            }else if(query == 2){ //
+                s.pop(); 
+            }else{
+                int max=0;
+                for(int si: s){
+                    if(si>max){
+                        max = si;
+                    } 
+                }
+                System.out.println(max);           
+            }
+        }
+    }
+}

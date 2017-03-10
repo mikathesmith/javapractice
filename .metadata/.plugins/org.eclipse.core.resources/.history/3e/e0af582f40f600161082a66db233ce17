@@ -1,0 +1,20 @@
+import java.util.*;
+import java.io.*;
+
+
+public class UniqueString{
+	
+	
+	public static void main(String[]args){
+		Scanner sc = new Scanner(System.in);
+		int length = sc.nextInt();
+		Hashtable<Character, Integer> hash = new Hashtable<Character, Integer>(length);
+
+		
+		
+		
+	}
+	
+	
+	
+}
