@@ -38,7 +38,7 @@ public class RansomNote{
                 }else{ //else we have at least 2, so just decrement the value
                     magazineMap.put(note, val-1); //decrement value of note
                 }
-            }else{ //if note is not in magazine, then we cannot replicate the note 
+            }else if(!magazineMap.containsKey(note)){ //if note is not in magazine, then we cannot replicate the note 
                 answer=false;
             }
         }
