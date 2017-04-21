@@ -1,0 +1,70 @@
+/*
+ * Mika Smith 
+ * 
+ * Implementation of depth first search of an n x m matrix of 0's and 1's 
+ * Finds the largest region of connected 1's. They can be connected if they 
+ * are adjacent vertically, horizontally or diagonally. 
+ * 
+ */
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class LargestRegion {
+    public static int rows;
+    public static int cols;
+    
+    public static int getLargestRegion(int[][] matrix) { //using an adjacency matrix to look at neighbours immediately. Recursive! 
+      //   HashSet<Integer> visited = new HashSet<Integer>();
+        int maxRegion = 0; 
+        for(int i=0; i< rows;i++){
+            for(int j=0; j< cols ;j++){
+                if(matrix[i][j]==1){
+                    int size = getLargestRegion(matrix, i, j);
+                    maxRegion = Math.max(size, maxRegion);
+                }
+            }
+        }
+        return maxRegion;
+    }
+    
+    //only executing this code if we are on a 1 
+    public static int getLargestRegion(int[][] grid, int row, int col){
+        //if row is less than 0, greater than the number or rows, the grid is empty or our current is 0, then return false. 
+         if (row < 0 || row >= rows || col < 0 || col >= cols || grid == null || grid[row][col] == 0) {
+            return 0; 
+        }
+
+        grid[row][col] = 0; // we alter the original matrix here
+        int size = 1;       // 1 accounts for our size, must initialise here! 
+        
+        /* Recursively search neighbors */
+        for (int r = row - 1; r <= row + 1; r++) {  //Scope of search is horizontal, vertical and diagonal neighbours 
+            for (int c = col - 1; c <= col + 1; c++) { 
+                if (!(r == row && c == col)) { //as long as we are not on ourself
+                    size += getLargestRegion(grid, r, c); //increment the size and look at the children's neighbours 
+                }
+            }
+        }
+
+        return size; //only returns once we cannot find anymore connect 1's. 
+    }
+    
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        rows = in.nextInt();
+        cols = in.nextInt();
+        int grid[][] = new int[rows][cols];
+        for(int grid_i=0; grid_i < rows; grid_i++){
+            for(int grid_j=0; grid_j < cols; grid_j++){
+                grid[grid_i][grid_j] = in.nextInt();
+            }
+        }
+        System.out.println(getLargestRegion(grid));
+    }
+}

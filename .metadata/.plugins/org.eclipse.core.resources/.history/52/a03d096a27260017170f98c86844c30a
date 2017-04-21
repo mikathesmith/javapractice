@@ -1,0 +1,29 @@
+/*
+Using an adjacency list
+*/
+
+import java.io.*;
+import java.util.*;
+
+public class BFS{
+	
+	public static class Vertex{
+		String name;
+		Neigbour adjList; 
+		vertex(String name, Neighbour neighbours){
+			this.name = name;
+			this.adjList = neighbours;
+		}
+	}
+	
+	public static class Neighbour{
+		public int vertexNum;
+		public Neighbour next;
+		public Neighbour(int vnum, Neighbour nbr){
+			this.vertexNum = vnum;
+			next = nbr;
+		}
+	}
+	
+	
+}

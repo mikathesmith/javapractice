@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+
+public class InsertionSort {
+
+	
+	public static void insertingOneElement(int[]ar){
+		
+	}
+	
+    public static void insertionSort(int[] ar)
+    {       
+        for(int i=1; i< ar.length; i++){
+            for(int j=0; j<ar.length-1; j++){
+                if(i>j && ar[i] < ar[j]){ //AND if i is greater than j?
+                    int temp = ar[i];
+                    ar[i] = ar[j];
+                    ar[j] = temp;       
+                }              
+            }
+            printArray(ar);
+        }    
+    } 
+    
+    
+    
+    
+      
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+       int s = in.nextInt();
+       int[] ar = new int[s];
+       for(int i=0;i<s;i++){
+            ar[i]=in.nextInt(); 
+       }
+       insertionSort(ar);              
+    }    
+    
+    private static void printArray(int[] ar) {
+      for(int n: ar){
+         System.out.print(n+" ");
+      }
+        System.out.println("");
+   }
+}

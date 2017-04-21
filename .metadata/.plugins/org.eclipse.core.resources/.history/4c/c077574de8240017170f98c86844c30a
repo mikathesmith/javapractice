@@ -1,0 +1,10 @@
+import java.io.*;
+import java.util.*;
+
+public class DFS_BFS{
+	
+	public static void depthFirst(Node root){ //go deep before wide! 
+		if(root==null) return; 
+		visit(root);
+	}
+}

@@ -1,0 +1,34 @@
+/*
+Breadth first search on an undirected graph
+using an adjacency linked list
+
+*/
+
+import java.io.*;
+import java.util.*;
+
+public class BFS{
+	
+	
+	public static class Vertex{
+		String name; //name of vertex
+		Neigbour adjList; //reference to neighbour object
+		vertex(String name, Neighbour neighbours){
+			this.name = name;
+			this.adjList = neighbours;
+		}
+	}
+	
+	public static class Neighbour{
+		public int vertexNum;
+		public Neighbour next; //pointer to next neihghbour 
+		public Neighbour(int vnum, Neighbour nbr){
+			this.vertexNum = vnum;
+			next = nbr;
+		}
+	}
+	
+	
+	
+	
+}
